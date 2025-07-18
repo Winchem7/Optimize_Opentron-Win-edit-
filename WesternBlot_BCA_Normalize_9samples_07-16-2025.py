@@ -12,7 +12,9 @@ import re
 metadata = {
     'protocolName': 'BCA Assay with Normalization for Western Blotting_9 samples',
     'author': 'Assistant',
-    'description': 'Serial dilution of BSA standard and sample processing. This includes cooling samples to 4c, heating plate to 37c with shaking and recording a video of the whole process. Place BSA Standard in A1, Lysis buffer in A2, change the number of samples and place samples in row B starting at B1. MINIMUM Sample volumen in eppendorf tubes is 40 uL. '
+    'description': 'Prepare serial dilutions of BSA std from 20 mg/ml BSA and run BCA of 5 ul of std and samples (tripicates), Then normalize to prepare samples for Western blot and store samples at 4 oC. \n 
+                    This includes cooling samples to 4c, heating plate to 37c with shaking and recording a video of the whole process.\n
+                    At Temp module [A2]; Place BSA Std in A1, Lysis buffer in A2, samples starting in row B from B1 (with MINIMUM volumen in eppendorf tubes is 40 uL.)'
 }
 
 requirements = {
@@ -22,18 +24,18 @@ requirements = {
 
 def run(protocol: protocol_api.ProtocolContext):
     protocol.comment(
-        "Place BSA Standard in A1, Lysis buffer in A2, tbta in A3, biotin in A4, cuso4 in A5, tcep in A6 and samples in row B")
+        "At Temp module [A2]; Place BSA Std in A1, Lysis buffer in A2, and samples in row B from B1")
     protocol.comment("Running the BCA assay")
 
-    #Edit these
-    ug_protein = 40
+ #########################  Edit these  ############################################################################################
+    ug_protein = 40                                                                               # 40 ug protein/ 15 uL final volume
     speed= 0.3
-    final_volume_ul = 15 # final sample volume in in uL
-    final_volume = final_volume_ul/1000 # final sample volume in uL
-    target_concentration = ug_protein/final_volume_ul # 40 ug protein/ 15 uL final volume
+    final_volume_ul = 15                                                                          # final sample volume in uL
+    final_volume = final_volume_ul/1000                                                           # final sample volume in uL
+    target_concentration = ug_protein/final_volume_ul                                             # 40 ug protein/ 15 uL final volume
     num_samples = 9 #change this to the number of samples you need to run. The maximum is 18.
     num_replicates = 3  # the number of replicates
-    standards_col = 2
+    standards_col = 2  ###
     position_standards = f'A{standards_col}'
 
 ###################################################################################################################################
@@ -67,7 +69,7 @@ def run(protocol: protocol_api.ProtocolContext):
     tips_1000 = protocol.load_labware('opentrons_flex_96_filtertiprack_1000ul', 'C4')
     plate1 = protocol.load_labware('opentrons_96_wellplate_200ul_pcr_full_skirt', 'A2')
     plate2 = protocol.load_labware('corning_96_wellplate_360ul_flat', 'B2')
-    plate3 = thermocycler.load_labware('opentrons_96_wellplate_200ul_pcr_full_skirt')    
+    plate3 = thermocycler.load_labware('opentrons_96_wellplate_200ul_pcr_full_skirt')    #### no need to specify location [A3] for thermocycler ###
     reservoir = protocol.load_labware('nest_12_reservoir_15ml', 'C2')
     
     # Liquid definitions
