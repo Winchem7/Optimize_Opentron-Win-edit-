@@ -25,18 +25,18 @@ def run(protocol: protocol_api.ProtocolContext):
         "At Temp module [A2]; Place BSA Std in A1, Lysis buffer in A2, and samples in row B from B1")
     protocol.comment("Running the BCA assay")
 
- #########################  Edit these  ############################################################################################
-    ug_protein = 40                                                                               # 40 ug protein/ 15 uL final volume
+ #########################  Edit these  ##################################################################################################
+    ug_protein = 40                                             # 40 ug protein/ 15 uL final volume
     speed= 0.3
-    final_volume_ul = 15                                                                          # final sample volume in uL
-    final_volume = final_volume_ul/1000                                                           # final sample volume in uL
-    target_concentration = ug_protein/final_volume_ul                                             # 40 ug protein/ 15 uL final volume
-    num_samples = 9 #change this to the number of samples you need to run. The maximum is 18.
-    num_replicates = 3  # the number of replicates
-    standards_col = 2  ###
+    final_volume_ul = 15                                        # final sample volume in uL
+    final_volume = final_volume_ul/1000                         # final sample volume in uL
+    target_concentration = ug_protein/final_volume_ul           # 40 ug protein/ 15 uL final volume
+    num_samples = 9                                             # change this to the number of samples you need to run. The maximum is 18.
+    num_replicates = 3                                          # the number of replicates
+    standards_col = 2                                           # to reuse the plate for serial dilution, specify the column number
     position_standards = f'A{standards_col}'
 
-###################################################################################################################################
+###########################################################################################################################################
 
 
     # ASSIGN POSITION OF MODULES
