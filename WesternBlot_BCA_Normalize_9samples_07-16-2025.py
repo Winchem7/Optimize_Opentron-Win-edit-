@@ -12,9 +12,7 @@ import re
 metadata = {
     'protocolName': 'BCA Assay with Normalization for Western Blotting_9 samples',
     'author': 'Assistant',
-    'description': 'Prepare serial dilutions of BSA std from 20 mg/ml BSA and run BCA of 5 ul of std and samples (tripicates), Then normalize to prepare samples for Western blot and store samples at 4 oC. \n 
-                    This includes cooling samples to 4c, heating plate to 37c with shaking and recording a video of the whole process.\n
-                    At Temp module [A2]; Place BSA Std in A1, Lysis buffer in A2, samples starting in row B from B1 (with MINIMUM volumen in eppendorf tubes is 40 uL.)'
+    'description': 'Prepare serial dilutions of BSA std from 20 mg/ml BSA and run BCA of 5 ul of std and samples (tripicates), Then normalize to prepare samples for Western blot and store samples at 4 oC. This includes cooling samples to 4c, heating plate to 37c with shaking and recording a video of the whole process.At Temp module [A2]; Place BSA Std in A1, Lysis buffer in A2, samples starting in row B from B1 (with MINIMUM volume in eppendorf tubes is 40 uL.)'
 }
 
 requirements = {
